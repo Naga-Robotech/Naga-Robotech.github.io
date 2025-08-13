@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PrestonBots Robotics Solutions</title>
+<style>
+  /* Reset */
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background: #f8f9fa;
+    color: #222;
+  }
+  a { text-decoration: none; color: inherit; }
+  header {
+    background: #0a0a23;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1.5rem;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .logo-tagline {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .logo-img {
+    height: 50px;
+    width: auto;
+    border-radius: 6px;
+  }
+  .tagline {
+    font-weight: 600;
+    font-size: 1.1rem;
+    user-select: none;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+  }
+  nav ul li { font-weight: 600; }
+  nav ul li a {
+    color: white;
+    padding: 0.5rem 0.8rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  nav ul li a:hover {
+    background-color: #ff9800;
+    color: #0a0a23;
+  }
+  main { max-width: 1080px; margin: 1.5rem auto 3rem auto; padding: 0 1rem; }
+  .hero {
+    background: linear-gradient(90deg, #0a0a23 0%, #222266 100%);
+    color: white;
+    padding: 4rem 2rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+  .hero h1 { font-size: 2.8rem; margin-bottom: 0.5rem; }
+  .hero p { font-size: 1.3rem; margin-bottom: 1.5rem; }
+  .hero .btn {
+    background: #ff9800; color: #0a0a23; font-weight: 700;
+    padding: 0.8rem 1.8rem; border: none; border-radius: 30px;
+    cursor: pointer; font-size: 1.1rem; transition: background-color 0.3s ease;
+  }
+  .hero .btn:hover { background: #e67e00; }
+  section { margin-top: 3rem; }
+  h2 { text-align: center; margin-bottom: 1rem; color: #0a0a23; font-weight: 700; }
+  .robots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+    gap: 1.5rem;
+  }
+  .robot-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .robot-card img {
+    border-radius: 8px;
+    height: 160px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+  }
+  .robot-name { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.3rem; color: #0a0a23; }
+  .robot-price { color: #ff6f00; font-weight: 700; margin-bottom: 1rem; }
+  .order-btn {
+    background: #0a0a23; color: white; border: none; border-radius: 25px;
+    padding: 0.6rem; cursor: pointer; font-weight: 700;
+    transition: background-color 0.3s ease;
+  }
+  .order-btn:hover { background: #ff9800; color: #0a0a23; }
+  .services-list {
+    max-width: 700px; margin: auto; background: white;
+    padding: 1.5rem 2rem; border-radius: 10px;
+    box-shadow: 0 4px 10px rgb(0 0 0 / 0.1);
+  }
+  .services-list ul { list-style: disc inside; font-size: 1.1rem; color: #333; }
+  .internship {
+    max-width: 600px; margin: auto; background: white; padding: 2rem;
+    border-radius: 12px; box-shadow: 0 4px 10px rgb(0 0 0 / 0.1);
+  }
+  .internship form input, .internship form textarea, .internship form button {
+    width: 100%; padding: 10px; margin-top: 0.5rem;
+    border-radius: 6px; border: 1px solid #ccc; font-size: 1rem;
+  }
+  .internship form textarea { resize: vertical; min-height: 100px; }
+  .internship form button {
+    margin-top: 1rem; background: #0a0a23; color: white; font-weight: 700;
+    border: none; cursor: pointer; transition: background-color 0.3s ease;
+  }
+  .internship form button:hover { background: #ff9800; color: #0a0a23; }
+  footer { background: #0a0a23; color: white; text-align: center; padding: 1.2rem; font-size: 0.9rem; margin-top: 3rem; }
+  @media (max-width: 600px) {
+    header { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+    nav ul { flex-wrap: wrap; justify-content: center; gap: 1rem; padding: 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-tagline">
+    <img class="logo-img" src="https://raw.githubusercontent.com/USERNAME/REPO/main/assets/logo.png" alt="PrestonBots Logo">
+    <div class="tagline">Innovative Robotics & IT Services</div>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#shop">Shop Now</a></li>
+      <li><a href="#login">Login</a></li>
+      <li><a href="#signup">Signup</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Empowering Your World with Robotics</h1>
+    <p>Discover desktop and industrial robots tailored to your needs.</p>
+    <button class="btn" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Shop Now</button>
+  </section>
+
+  <section id="shop">
+    <h2>Our Robots</h2>
+    <div class="robots-grid">
+      <div class="robot-card">
+        <img src="https://raw.githubusercontent.com/USERNAME/REPO/main/assets/robot1.jpg" alt="Desktop Bot X1">
+        <div class="robot-name">Desktop Bot X1</div>
+        <div class="robot-price">£499</div>
+        <button class="order-btn" onclick="alert('Order functionality coming soon!')">Order Now</button>
+      </div>
+      <div class="robot-card">
+        <img src="https://raw.githubusercontent.com/USERNAME/REPO/main/assets/robot2.jpg" alt="Industrial Bot Pro">
+        <div class="robot-name">Industrial Bot Pro</div>
+        <div class="robot-price">£1,299</div>
+        <button class="order-btn" onclick="alert('Order functionality coming soon!')">Order Now</button>
+      </div>
+      <div class="robot-card">
+        <img src="https://raw.githubusercontent.com/USERNAME/REPO/main/assets/robot3.jpg" alt="Automation Bot Z3">
+        <div class="robot-name">Automation Bot Z3</div>
+        <div class="robot-price">£799</div>
+        <button class="order-btn" onclick="alert('Order functionality coming soon!')">Order Now</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2>IT Services We Provide</h2>
+    <div class="services-list">
+      <ul>
+        <li>Custom Robotics Development</li>
+        <li>Automation Integration</li>
+        <li>Embedded Systems Engineering</li>
+        <li>Software & Firmware Support</li>
+        <li>IT Consultancy & Support</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="internship" class="internship">
+    <h2>Internship Opportunities</h2>
+    <p>We are accepting interns! Apply below to join our innovative team.</p>
+    <form action="https://formspree.io/f/your-form-id" method="POST" target="_blank">
+      <label for="name">Full Name *</label>
+      <input type="text" id="name" name="name" required placeholder="Your full name" />
+      <label for="email">Email *</label>
+      <input type="email" id="email" name="email" required placeholder="Your email address" />
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="Optional" />
+      <label for="message">Why do you want to intern with us? *</label>
+      <textarea id="message" name="message" required placeholder="Tell us why..."></textarea>
+      <button type="submit">Apply Now</button>
+    </form>
+  </section>
+
+  <!-- Login -->
+  <section id="login" style="max-width:400px;margin:3rem auto; background:#fff; padding:2rem; border-radius:12px; box-shadow:0 4px 10px rgb(0 0 0 / 0.1);">
+    <h2>Login</h2>
+    <p><em>This is a placeholder. Real login requires backend setup.</em></p>
+    <form onsubmit="alert('Login feature coming soon!');return false;">
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+  </section>
+
+  <!-- Signup -->
+  <section id="signup" style="max-width:400px;margin:3rem auto; background:#fff; padding:2rem; border-radius:12px; box-shadow:0 4px 10px rgb(0 0 0 / 0.1);">
+    <h2>Sign Up</h2>
+    <p><em>This is a placeholder. Real signup requires backend setup.</em></p>
+    <form onsubmit="alert('Signup feature coming soon!');return false;">
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Password" required />
+      <button type="submit">Sign Up</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 PrestonBots Ltd. All rights reserved.
+</footer>
+
+</body>
+</html>
+
